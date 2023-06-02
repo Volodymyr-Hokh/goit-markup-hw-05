@@ -4,6 +4,7 @@
   --accent-color: #404bbf;
   --default-bg: #ffffff;
   --button-color: #f4f4fd;
+  --transition-params: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 h1,
@@ -86,7 +87,6 @@ body {
 
 .menu-item {
   margin-top: 24px;
-  margin-bottom: 24px;
 }
 
 .menu-item:not(:last-child) {
@@ -135,6 +135,27 @@ body {
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: var(--primary-color);
+  transition: color var(--transition-params);
+}
+
+.menu-link.active::after {
+  content: '';
+  width: 100%;
+  height: 4px;
+  left: 0;
+  bottom: 0;
+  display: block;
+  background-color: var(--accent-color);
+  border-radius: 2px;
+  margin-top: 24px;
+  transition: var(--accent-color);
+}
+
+.menu-link:not(.active)::after {
+  content: '';
+  height: 4px;
+  display: block;
+  margin-top: 24px;
 }
 
 .menu-link:hover,
@@ -147,6 +168,7 @@ body {
   line-height: 1.5;
   letter-spacing: 0.02em;
   margin-left: auto;
+  transition: color var(--transition-params);
 }
 
 .contacts-link:hover,
@@ -205,6 +227,7 @@ body {
   margin-right: auto;
   border: none;
   border-radius: 4px;
+  transition: background-color var(--transition-params);
 }
 
 .order-button:hover,
@@ -318,6 +341,7 @@ body {
   height: 40px;
   border-radius: 50%;
   background-color: var(--secondary-color);
+  transition: background-color var(--transition-params);
 }
 
 .social-media-icon {
@@ -339,6 +363,8 @@ body {
   border: 1px solid #8e8f99;
   border-radius: 4px;
   fill: #8e8f99;
+  transition: fill var(--transition-params),
+    border-color var(--transition-params);
 }
 
 .customer-link:hover .customer-icon,
@@ -362,6 +388,8 @@ body {
   padding-top: 12px;
   padding-left: 24px;
   padding-right: 24px;
+  transition: background-color var(--transition-params),
+    color var(--transition-params), box-shadow var(--transition-params);
 }
 .filter-button:hover,
 .filter-button:focus {
@@ -397,6 +425,11 @@ body {
     0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
 }
 
+.portfolio-list-item:hover .overlay,
+.portfolio-list-item:focus .overlay {
+  transform: translate(0, 0);
+}
+
 .portfolio-item-description {
   font-weight: 500;
   font-size: 20px;
@@ -419,6 +452,35 @@ body {
   border-bottom: 1px solid #e7e9fc;
   border-left: 1px solid #e7e9fc;
   border-right: 1px solid #e7e9fc;
+  transition: box-shadow var(--transition-params);
+}
+
+.portfolio-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  background-color: var(--secondary-color);
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  transform: translate(0, 100%);
+  transition: transform var(--transition-params);
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.02em;
+  color: var(--button-color);
+  padding-top: 40px;
+  padding-left: 32px;
+  padding-right: 32px;
 }
 
 .footer {
@@ -468,6 +530,7 @@ body {
   height: 40px;
   border-radius: 50%;
   background-color: var(--secondary-color);
+  transition: background var(--transition-params);
 }
 
 .footer-social-media-link:hover,
