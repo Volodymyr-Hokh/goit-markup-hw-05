@@ -374,6 +374,11 @@ body {
   border-color: var(--accent-color);
 }
 
+.customer-link {
+  transition: border-color var(--transition-params),
+    color var(--transition-params);
+}
+
 .filter-button {
   font-family: inherit;
   font-weight: 500;
@@ -427,8 +432,8 @@ body {
     0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
 }
 
-.portfolio-list-item:hover .overlay,
-.portfolio-list-item:focus .overlay {
+.portfolio-link:hover .overlay,
+.portfolio-link:focus .overlay {
   transform: translateY(0%);
 }
 
@@ -454,6 +459,9 @@ body {
   border-bottom: 1px solid #e7e9fc;
   border-left: 1px solid #e7e9fc;
   border-right: 1px solid #e7e9fc;
+}
+
+.portfolio-link {
   transition: box-shadow var(--transition-params);
 }
 
