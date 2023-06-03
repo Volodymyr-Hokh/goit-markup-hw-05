@@ -156,13 +156,7 @@ body {
   margin-top: 24px;
   transition: var(--accent-color);
   position: absolute;
-}
-
-.menu-link:not(.active)::after {
-  content: '';
-  height: 4px;
-  display: block;
-  margin-top: 24px;
+  top: 20px;
 }
 
 .menu-link:hover,
@@ -587,7 +581,8 @@ body {
   position: absolute;
   top: 24px;
   right: 24px;
-  transition: background-color var(--transition-params);
+  transition: background-color var(--transition-params),
+    border var(--transition-params);
 }
 
 .is-hidden {
